@@ -126,13 +126,13 @@ void loop(){
             client.println();
 
             if (header.indexOf("GET /lightmode") >= 0){
+                LightMode += 1;           // Increment color set
               if (LightMode == 9){   // Auto Color Rotation
                 strip.setBrightness(250);               
                 automodechange = true;    // Enable Auto Color Rotation
                 modechangetmr = millis(); // reset the duratio
               } else {
                 automodechange = false;   // Disable Auto Color Rotation
-                LightMode += 1;           // Increment color set
                 RGBIndex = LightMode * 3; // Starting RGB color index in color array
               }
             }
